@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Temperature Converter</string>
+
+    <string name="fromText">From:</string>
+    <string name="toText">To:</string>
+    <string name="convertButton">Convert</string>
+    <string name="resetButton">Clear</string>
+    <string name="textHint">"Please enter a value</string>
+
+    <string name="defaultValue">0</string>
+
+    <string-array name="Scale">
+
+        <item>Kelvin</item>
+        <item>Celcius</item>
+        <item>Fahrenheit</item>
+
+    </string-array>
+</resources>
