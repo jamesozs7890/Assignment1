@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/DarkGray"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -11,6 +12,7 @@
         android:layout_width="412dp"
         android:layout_height="152dp"
         android:layout_marginBottom="36dp"
+        android:background="@color/LightGray"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/toVLinearLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,6 +24,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="47dp"
+            android:background="@color/LightGray"
             android:orientation="horizontal">
 
             <TextView
@@ -31,6 +34,7 @@
                 android:layout_weight="1"
                 android:text="@string/fromText"
                 android:textAlignment="textStart"
+                android:textColor="@android:color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +45,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:entries="@array/Scale" />
+
+
+                android:entries="@array/Scale"
+                android:popupBackground="@color/darkWhite" />
+
         </LinearLayout>
 
         <EditText
@@ -51,7 +59,11 @@
             android:autofillHints=""
             android:ems="10"
             android:inputType="numberDecimal"
-            tools:ignore = "LabelFor" />
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="LabelFor" />
 
     </LinearLayout>
 
@@ -60,6 +72,7 @@
         android:layout_width="416dp"
         android:layout_height="152dp"
         android:layout_marginBottom="80dp"
+        android:background="@color/LightGray"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/ButtonLinearLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -79,6 +92,7 @@
                 android:layout_weight="1"
                 android:text="@string/toText"
                 android:textAlignment="textStart"
+                android:textColor="@android:color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -87,7 +101,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:entries="@array/Scale" />
+                android:entries="@array/Scale"
+                android:popupBackground="@color/darkWhite" />
         </LinearLayout>
 
         <TextView
@@ -96,7 +111,8 @@
             android:layout_height="77dp"
             android:text="@string/defaultValue"
             android:textAlignment="center"
-            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -114,14 +130,18 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/buttonConstraint"
             android:layout_width="match_parent"
-            android:layout_height="188dp">
+            android:layout_height="187dp">
 
             <Button
                 android:id="@+id/buttonConvert"
+                style="@style/Widget.AppCompat.Button.Small"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70sp"
                 android:layout_marginTop="28dp"
+                android:background="@color/LightGray"
                 android:text="@string/convertButton"
+                android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -130,8 +150,11 @@
             <Button
                 android:id="@+id/buttonReset"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70sp"
+                android:background="@color/LightGray"
                 android:text="@string/resetButton"
+                android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
