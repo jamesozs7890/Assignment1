@@ -11,9 +11,9 @@
 
     <string-array name="Scale">
 
-        <item>Kelvin</item>
-        <item>Celcius</item>
-        <item>Fahrenheit</item>
+        <item>Kelvin(K)</item>
+        <item>Celsius(°C)</item>
+        <item>Fahrenheit(°F)</item>
 
     </string-array>
 </resources>
