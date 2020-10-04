@@ -54,17 +54,17 @@ public class MainActivity extends AppCompatActivity {
                     input = Double.parseDouble(inputValue.getText().toString());
 
                    if(sp1.getSelectedItemPosition()==0 && sp2.getSelectedItemPosition()==1){
-                        result = (9/5)*(input-273)+32;
+                        result = (input-273)*9/5+32;
                     }else if(sp1.getSelectedItemPosition()==0 && sp2.getSelectedItemPosition()==2){
                        result = input-273;
                     }else if(sp1.getSelectedItemPosition()==1 && sp2.getSelectedItemPosition()==0) {
-                       result = (5/9) * (input - 32) + 273;
+                       result = (input-32)*5/9+273;
                     }else if(sp1.getSelectedItemPosition()==1 && sp2.getSelectedItemPosition()==2) {
-                       result = (5/9) * (input - 32);
+                       result = (input - 32)*5/9;
                     }else if(sp1.getSelectedItemPosition()==2 && sp2.getSelectedItemPosition()==0) {
                        result = (input+273);
                     }else if(sp1.getSelectedItemPosition()==2 && sp2.getSelectedItemPosition()==1) {
-                       result = (9/5)*(input)+32;
+                       result = (input*9/5)+32;
                     }else if (sp1.getSelectedItemPosition()==sp2.getSelectedItemPosition()){
                        sameScale.show();
                        result = input;
