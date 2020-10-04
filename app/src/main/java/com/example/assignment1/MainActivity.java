@@ -16,9 +16,11 @@ import org.w3c.dom.Text;
 public class MainActivity extends AppCompatActivity {
 
     double input;
+    double result = 0;
     Toast sameScale;
     Toast emptyField;
     Toast error;
+    String converted;
 
     EditText inputValue;
     TextView output;
@@ -45,23 +47,33 @@ public class MainActivity extends AppCompatActivity {
 
         convertBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                String converted;
+
 
                 if(!TextUtils.isEmpty(inputValue.getText().toString())){
+
                     input = Double.parseDouble(inputValue.getText().toString());
 
-                    if(sp1.getSelectedItemPosition()==1){
-                        converted = Double.toString(Kelvin(input));
-                        output.setText(converted);
-                    }else if(sp1.getSelectedItemPosition()==2){
-                        converted = Double.toString(Fahrenheit(input));
-                        output.setText(converted);
-                    }else if(sp1.getSelectedItemPosition()==3) {
-                        converted = Double.toString(Celsius(input));
-                        output.setText(converted);
+                   if(sp1.getSelectedItemPosition()==0 && sp2.getSelectedItemPosition()==1){
+                        result = (9/5)*(input-273)+32;
+                    }else if(sp1.getSelectedItemPosition()==0 && sp2.getSelectedItemPosition()==2){
+                       result = input-273;
+                    }else if(sp1.getSelectedItemPosition()==1 && sp2.getSelectedItemPosition()==0) {
+                       result = (5/9) * (input - 32) + 273;
+                    }else if(sp1.getSelectedItemPosition()==1 && sp2.getSelectedItemPosition()==2) {
+                       result = (5/9) * (input - 32);
+                    }else if(sp1.getSelectedItemPosition()==2 && sp2.getSelectedItemPosition()==0) {
+                       result = (input+273);
+                    }else if(sp1.getSelectedItemPosition()==2 && sp2.getSelectedItemPosition()==1) {
+                       result = (9/5)*(input)+32;
+                    }else if (sp1.getSelectedItemPosition()==sp2.getSelectedItemPosition()){
+                       sameScale.show();
+                       result = input;
                     }else{
                         error.show();
                     }
+
+                    converted = Double.toString(result);
+                    output.setText(converted);
 
                 }else{
                     emptyField.show();
@@ -78,60 +90,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    double Kelvin(double i){
-        double result;
 
-        if(sp2.getSelectedItemPosition()==2){
-            result = 9/5*(i-273)+32;
-            return result;
-        }else if (sp2.getSelectedItemPosition()==3) {
-            result = i-273;
-            return result;
-        }else if(sp2.getSelectedItemPosition()==1) {
-            result = i;
-            sameScale.show();
-            return result;
-        }else {
-            return 0;
-        }
-    }
-
-    double Fahrenheit(double i){
-        double result;
-
-        if(sp2.getSelectedItemPosition()==1){
-            result = 5/9*(i-32)+273;
-            return result;
-        }else if (sp2.getSelectedItemPosition()==3) {
-            result = 5/9*(i-32);
-            return result;
-        }else if(sp2.getSelectedItemPosition()==2) {
-            result = i;
-            sameScale.show();
-            return result;
-        }else{
-            return 0;
-        }
 
     }
-
-    double Celsius(double i){
-        double result;
-
-        if(sp2.getSelectedItemPosition()==1){
-            result = i+273;
-            return result;
-        }else if (sp2.getSelectedItemPosition()==2) {
-            result = 9/5*(i)+32;
-            return result;
-        }else if(sp2.getSelectedItemPosition()==3) {
-            result = i;
-            sameScale.show();
-            return result;
-        }else{
-            return 0;
-        }
-
-    }
-}
 
