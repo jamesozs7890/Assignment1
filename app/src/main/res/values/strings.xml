@@ -12,8 +12,8 @@
     <string-array name="Scale">
 
         <item>Kelvin(K)</item>
-        <item>Celsius(°C)</item>
         <item>Fahrenheit(°F)</item>
+        <item>Celsius(°C)</item>
 
     </string-array>
 </resources>

@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     double input;
     Toast sameScale;
     Toast emptyField;
+    Toast error;
 
     EditText inputValue;
     TextView output;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         sameScale = Toast.makeText(this,"Please select different Scale",Toast.LENGTH_SHORT);
         emptyField = Toast.makeText(this,"Please enter a value in the input box", Toast.LENGTH_SHORT);
+        error = Toast.makeText(this,"An error occured",Toast.LENGTH_SHORT);
 
         inputValue = (EditText) findViewById(R.id.editTextInput);
         output = (TextView) findViewById(R.id.resultTextView);
@@ -47,15 +49,20 @@ public class MainActivity extends AppCompatActivity {
 
                 if(!TextUtils.isEmpty(inputValue.getText().toString())){
                     input = Double.parseDouble(inputValue.getText().toString());
-                    if(sp1.getSelectedItem()=="Kelvin(K)"){
+
+                    if(sp1.getSelectedItemPosition()==1){
                         converted = Double.toString(Kelvin(input));
                         output.setText(converted);
-                    }else if(sp1.getSelectedItem()=="Fahrenheit(°F)"){
+                    }else if(sp1.getSelectedItemPosition()==2){
                         converted = Double.toString(Fahrenheit(input));
                         output.setText(converted);
-                    }else
+                    }else if(sp1.getSelectedItemPosition()==3) {
                         converted = Double.toString(Celsius(input));
                         output.setText(converted);
+                    }else{
+                        error.show();
+                    }
+
                 }else{
                     emptyField.show();
                 }
@@ -74,13 +81,13 @@ public class MainActivity extends AppCompatActivity {
     double Kelvin(double i){
         double result;
 
-        if(sp2.getSelectedItem() == "Fahrenheit(°F)"){
+        if(sp2.getSelectedItemPosition()==2){
             result = 9/5*(i-273)+32;
             return result;
-        }else if (sp2.getSelectedItem() == "Celcius(°C)") {
+        }else if (sp2.getSelectedItemPosition()==3) {
             result = i-273;
             return result;
-        }else if(sp2.getSelectedItem() == "Kelvin(K)") {
+        }else if(sp2.getSelectedItemPosition()==1) {
             result = i;
             sameScale.show();
             return result;
@@ -92,41 +99,38 @@ public class MainActivity extends AppCompatActivity {
     double Fahrenheit(double i){
         double result;
 
-        if(sp2.getSelectedItem() == "Kelvin(K)"){
+        if(sp2.getSelectedItemPosition()==1){
             result = 5/9*(i-32)+273;
             return result;
-        }else if (sp2.getSelectedItem() == "Celcius(°C)") {
+        }else if (sp2.getSelectedItemPosition()==3) {
             result = 5/9*(i-32);
             return result;
-        }else if(sp2.getSelectedItem() == "Fahrenheit(°F)") {
+        }else if(sp2.getSelectedItemPosition()==2) {
             result = i;
             sameScale.show();
             return result;
         }else{
             return 0;
         }
-
-
 
     }
 
     double Celsius(double i){
         double result;
 
-        if(sp2.getSelectedItem() == "Kelvin(K)"){
+        if(sp2.getSelectedItemPosition()==1){
             result = i+273;
             return result;
-        }else if (sp2.getSelectedItem() == "Fahrenheit(°F)") {
+        }else if (sp2.getSelectedItemPosition()==2) {
             result = 9/5*(i)+32;
             return result;
-        }else if(sp2.getSelectedItem() == "Celcius(°C)") {
+        }else if(sp2.getSelectedItemPosition()==3) {
             result = i;
             sameScale.show();
             return result;
         }else{
             return 0;
         }
-
 
     }
 }
