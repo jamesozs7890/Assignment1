@@ -71,13 +71,15 @@
         android:id="@+id/toVLinearLayout"
         android:layout_width="416dp"
         android:layout_height="152dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginTop="168dp"
         android:background="@color/LightGray"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/ButtonLinearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.233">
 
         <LinearLayout
             android:id="@+id/toHLinearLayout"
@@ -119,18 +121,19 @@
 
     <LinearLayout
         android:id="@+id/ButtonLinearLayout"
-        android:layout_width="418dp"
-        android:layout_height="235dp"
-        android:layout_marginBottom="56dp"
+        android:layout_width="411dp"
+        android:layout_height="209dp"
+        android:layout_marginBottom="4dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/buttonConstraint"
             android:layout_width="match_parent"
-            android:layout_height="187dp">
+            android:layout_height="match_parent">
 
             <Button
                 android:id="@+id/buttonConvert"
@@ -157,8 +160,10 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/buttonConvert" />
+                app:layout_constraintTop_toBottomOf="@+id/buttonConvert"
+                app:layout_constraintVertical_bias="0.157" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
