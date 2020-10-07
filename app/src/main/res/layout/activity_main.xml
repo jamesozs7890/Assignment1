@@ -69,8 +69,8 @@
 
     <LinearLayout
         android:id="@+id/toVLinearLayout"
-        android:layout_width="416dp"
-        android:layout_height="152dp"
+        android:layout_width="412dp"
+        android:layout_height="149dp"
         android:layout_marginTop="168dp"
         android:background="@color/LightGray"
         android:orientation="vertical"
